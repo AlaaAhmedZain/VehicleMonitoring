@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <DockerComposeProjectPath>..\..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="2.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\VehicleMonitoring.Common\VehicleMonitoring.Common.Core\VehicleMonitoring.Common.Core.csproj" />
+    <ProjectReference Include="..\..\VehicleMonitoring.Common\VehicleMonitoring.Common.EventBusRabbitMQ\VehicleMonitoring.Common.EventBusRabbitMQ.csproj" />
+    <ProjectReference Include="..\..\VehicleMonitoring.Common\VehicleMonitoring.Common.EventBus\VehicleMonitoring.Common.EventBus.csproj" />
+    <ProjectReference Include="..\..\VehicleMonitoring.Common\VehicleMonitoring.Common.Messaging\VehicleMonitoring.Common.Messaging.csproj" />
+    <ProjectReference Include="..\VehicleMonitoring.Services.Infrastructure\VehicleMonitoring.Services.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

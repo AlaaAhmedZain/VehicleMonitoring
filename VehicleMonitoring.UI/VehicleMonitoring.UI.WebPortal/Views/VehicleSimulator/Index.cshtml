@@ -1,0 +1,33 @@
+﻿@model List<VehicleMonitoring.UI.WebPortal.Models.CustomerVehicles>
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2> Vehicles Simulator</h2>
+    <form asp-controller="VehicleSimulator" asp-action="Index" method="get">
+        <p>
+            
+            Customer Name: <select name="vin">
+                <option value="0">---Select VIN --- </option>
+                @foreach (var item in Model)
+                {
+                    <option value="@item.VIN">@item.VIN</option>
+                }
+            </select>
+            <input type="submit" value="Post" />
+        </p>
+    </form>
+    
+</body>
+</html>

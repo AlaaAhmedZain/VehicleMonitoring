@@ -1,0 +1,95 @@
+﻿@model VehicleMonitoring.UI.WebPortal.Models.VehiclesCustomerLookup
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>Customer Vehicles DashBoard</h2>
+    <form asp-controller="VehicleDashBoard" asp-action="Index" method="get">
+        <p>
+            Status:<select name="status">
+                <option value="">---Select Status---</option>
+                <option value="True">Connected</option>
+                <option value="False">Not Connected</option>
+            </select>
+            Customer Name: <select name="customerID">
+                <option value="0">---Select Customer --- </option>
+                @foreach (var item in Model.CusLookup)
+                {
+                    <option value="@item.ID">@item.Name</option>
+                }
+            </select>
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Customer Name
+                </th>
+                <th>
+                    Customer Address
+                </th>
+                <th>
+                    VIN
+                </th>
+                <th>
+                    Reg Number
+                </th>
+                <th>
+                    Customer Id
+                </th>
+                <th>
+                    Last Ping
+                </th>
+                <th>
+                    Status
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.CusVehicles)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VIN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RegNr)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastPing)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    Vehicles Count : @Model.CusVehicles.Count
+</body>
+</html>

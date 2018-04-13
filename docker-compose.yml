@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  vehiclemonitoring.services.api:
+    image: vehiclemonitoringservicesapi
+    build:
+      context: .
+      dockerfile: VehicleMonitoring.Services\VehicleMonitoring.Services.API\Dockerfile
+
+  vehiclemonitoring.gateway.api:
+    image: vehiclemonitoringgatewayapi
+    build:
+      context: .
+      dockerfile: VehicleMonitoring.Gateway\VehicleMonitoring.Gateway.API\Dockerfile
+
+
+  vehiclemonitoring.statusservice.api:
+    image: vehiclemonitoringstatusserviceapi
+    build:
+      context: .
+      dockerfile: VehicleMonitoring.StatusService\VehicleMonitoring.StatusService.API\Dockerfile
+
+
+  vehiclemonitoring.ui.webportal:
+    image: vehiclemonitoringuiwebportal
+    build:
+      context: .
+      dockerfile: VehicleMonitoring.UI\VehicleMonitoring.UI.WebPortal\Dockerfile
+
+
+  vehiclemonitoring.customersvc.api:
+    image: vehiclemonitoringcustomersvcapi
+    build:
+      context: .
+      dockerfile: VehicleMonitoring.CustomerSVC\VehicleMonitoring.CustomerSVC.API\Dockerfile
+
